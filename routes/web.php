@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => '/admin', 'middleware' => []], function () {
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    // Route::resource('categories', CategoryController::class);
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
