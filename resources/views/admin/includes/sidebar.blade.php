@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-success elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link text-center">
-        <strong class="brand-text font-weight-light">Tech2U</strong>
+        <strong class="brand-text font-weight-light">{{env('APP_NAME', 'FISH BOOK')}}</strong>
     </a>
 
     <!-- Sidebar -->
@@ -16,7 +16,7 @@
                 @endif
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()?->getFullName()}}</a>
+                <a href="#" class="d-block">{{ auth()->user()?->getFullName() ?? 'Administrator'}}</a>
             </div>
         </div>
 
@@ -49,18 +49,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link @if(Request::is('admin/services*')) active @endif" id="categories-link">
+                    <a href="#" class="nav-link @if(Request::is('admin/ponds*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Services
+                            Ponds
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link @if(Request::is('admin/reservation*')) active @endif" id="categories-link">
+                    <a href="#" class="nav-link @if(Request::is('admin/feeds*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Reservations
+                            Feeds
                         </p>
                     </a>
                 </li>
