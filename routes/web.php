@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => '/admin', 'middleware' => []], function () {
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    // Route::resource('categories', CategoryController::class);
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/about', function(){
+    return view('about');
+})->name('about');
+
+Route::get('/ponds_info', function(){
+    return view('ponds_info');
+})->name('ponds_info');
+
+Route::get('/round_fish_pond', function(){
+    return view('round_fish_pond');
+})->name('round_fish_pond');
+
+Route::get('/rectangular_fish_pond', function(){
+    return view('rectangular_fish_pond');
+})->name('rectangular_fish_pond');
+
+Route::get('/calculation', function(){
+    return view('calculation');
+})->name('calculation');
+
+Route::get('/profile', function(){
+    return view('profile');
+})->name('profile');

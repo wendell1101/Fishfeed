@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background-color: #d6d6d6;
+  overflow-x: hidden;
+}
+
+button {
+  box-shadow: none !important;
+}
+
+.navbar {
+  background-color: #00041a;
+}
+
+.carousel-item {
+  height: 100vh;
+  margin-top: -80px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.nav-link.active {
+  color: #198754 !important;
+  font-weight: 900;
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: -100px;
+}
+
+.calculation-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: 5px;
+}
+
+.round-type-calculation-wrapper, .rectangular-type-calculation-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  margin-top: 5px;
+  flex-direction: column;
+}
+
+.pond-calculation {
+  background-color: #00041a;
+  width: 450px;
+}
