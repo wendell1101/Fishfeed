@@ -10,8 +10,17 @@ button {
   box-shadow: none !important;
 }
 
-.navbar {
+.navbar, .footer {
   background-color: #00041a;
+}
+
+.home-wrapper, .login-wrapper, .register-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  margin-top: 5px;
+  flex-direction: column;
 }
 
 .carousel-item {
