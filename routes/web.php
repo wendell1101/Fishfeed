@@ -47,6 +47,10 @@ Route::get('/calculation', function(){
     return view('calculation');
 })->name('calculation');
 
+Route::get('/fish_ponds', function(){
+    return view('fish_ponds');
+})->name('fish_ponds');
+
 Route::get('/profile', function(){
     return view('profile');
 })->name('profile');
