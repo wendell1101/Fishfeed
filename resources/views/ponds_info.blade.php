@@ -10,7 +10,7 @@
                     <div class="round-type-calculation">
                         <img src="{{asset('imgs/type-of-ponds.png')}}" class="rounded-2" width="100%" alt="fish" class="fish" />
                     </div>
-                    <a href="{{route('round_fish_pond')}}" class="text-decoration-none">
+                    <a href="{{route('fish_ponds')}}" class="text-decoration-none">
                         <button class="align-items-center d-flex justify-content-center btn btn-primary btn-lg mt-3 w-100" type="submit">
                             <i class='bx bx-water me-1'></i>
                             <p class="m-0">Types of Fish Ponds</p>
@@ -23,10 +23,10 @@
                     <div class="round-type-calculation">
                         <img src="{{asset('imgs/type-of-reproduction.png')}}" class="rounded-2" width="100%" alt="fish" class="fish" />
                     </div>
-                    <a href="{{route('rectangular_fish_pond')}}" class="text-decoration-none">
+                    <a href="{{route('fish_reproduction')}}" class="text-decoration-none">
                         <button class="align-items-center d-flex justify-content-center btn btn-primary btn-lg mt-3 w-100" type="submit">
                             <i class='bx bxs-heart-circle me-1'></i>
-                            <p class="m-0">Type of Reproduction</p>
+                            <p class="m-0">Type of Fish Reproduction</p>
                         </button>
                     </a>
                 </div>
