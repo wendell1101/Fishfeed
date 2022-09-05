@@ -10,8 +10,17 @@ button {
   box-shadow: none !important;
 }
 
-.navbar {
+.navbar, .footer {
   background-color: #00041a;
+}
+
+.home-wrapper, .login-wrapper, .register-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  margin-top: 5px;
+  flex-direction: column;
 }
 
 .carousel-item {
@@ -65,3 +74,13 @@ button {
   background-color: #00041a;
   width: 450px;
 }
+
+.pond-type .fish-pond-img {
+    width: 100%;
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-bottom-left-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+}
+

@@ -11,7 +11,7 @@
                 <img src="{{asset('imgs/samuel.png')}}" alt="member-1" width="100px" class="img-fluid rounded-circle border border-2 border-success">
             </div>
             <div class="member-info ms-2 mt-3 text-lg-start text-center">
-              <h5 class="text-uppercase fw-bold">Samuel M. Mamaril
+              <h5 class="text-uppercase fw-bold">Samuel V. Mamaril
               </h5>
               <div class="m-0 d-lg-flex align-items-center gap-1">
                 <i class='bx bx-phone-call'></i>
@@ -73,7 +73,7 @@
             </div>
           </div>
         </div>
-        
+
 
       </div>
 
