@@ -3,7 +3,7 @@
 body {
   font-family: 'Heebo', sans-serif;
   background-color: #d6d6d6;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 button {

@@ -23,6 +23,18 @@ return new class extends Migration
             $table->string('suffix')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('civil_status')->nullable();
+            $table->string('sex')->nullable();
+            $table->string('religion')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->string('contact_number')->nullable();
+            $table->string('house_number')->nullable();
+            $table->string('street')->nullable();
+            $table->string('barangay')->nullable();
+            $table->string('province')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('country')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
