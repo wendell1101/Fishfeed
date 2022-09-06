@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AdminController;
 
 /*
@@ -23,6 +24,8 @@ Route::group(['prefix' => '/admin', 'middleware' => []], function () {
 
     // Route::resource('categories', CategoryController::class);
 });
+
+Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('update_profile')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -57,4 +60,4 @@ Route::get('/fish_reproduction', function(){
 
 Route::get('/profile', function(){
     return view('profile');
-})->name('profile');
+})->name('profile')->middleware('auth');
