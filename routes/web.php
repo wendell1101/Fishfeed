@@ -25,7 +25,7 @@ Route::group(['prefix' => '/admin', 'middleware' => []], function () {
     // Route::resource('categories', CategoryController::class);
 });
 
-Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('update_profile');
+Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('update_profile')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
