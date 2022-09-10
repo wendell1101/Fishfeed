@@ -5,15 +5,15 @@
             'link' => '/admin/dashboard'
         ],
         [
-            'name' => 'Services',
-            'link' => route('services.index')
+            'name' => 'Ponds',
+            'link' => route('ponds.index')
         ],
         [
-            'name' => $service->name,
-            'link' => route('admin.services.delete', $service->id)
+            'name' => $pond->name,
+            'link' => route('admin.ponds.delete', $pond->id)
         ]
     ];
-    $title = 'Delete Service';
+    $title = 'Delete Pond';
 @endphp 
 
 @extends('admin.base')
@@ -26,12 +26,12 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid px-2 py-4 bg-white">
-        <p style="font-size: 2rem">Are you sure you want to delete this service <span class="font-weight-bold">({{$service->name}})</span> ? </p>
-        <form action="{{route('services.destroy', $service->id)}}" method="POST">
+        <p style="font-size: 2rem">Are you sure you want to delete this category <span class="font-weight-bold">({{$pond->name}})</span> ? </p>
+        <form action="{{route('ponds.destroy', $pond->id)}}" method="POST">
             @csrf
             @method('DELETE')            
             <div class="form-group">
-                <a href="{{route('services.index', $service->id)}}" class="btn btn-secondary">
+                <a href="{{route('ponds.index', $pond->id)}}" class="btn btn-secondary">
                     Cancel
                 </a>
                 <button type="submit" class="btn btn-danger">

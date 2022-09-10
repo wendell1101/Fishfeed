@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-4 mb-2 form-group">
                         <label for="suffix">Suffix</label>
-                        <input type="text" name="suffix" id="suffix" value="{{auth()->user()->suffix ?? ''}}" class="form-control" required>
+                        <input type="text" name="suffix" id="suffix" value="{{auth()->user()->suffix ?? ''}}" class="form-control">
                     </div>
                     <div class="col-md-4 mb-2 form-group">
                         <label for="user_name">Username</label>
