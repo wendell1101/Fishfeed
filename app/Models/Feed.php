@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Pond extends Model
+class Feed extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Pond extends Model
 
     public function storeImage($image){
         $filename = time() . '-' . $image->getClientOriginalName();
-        $image = $image->storeAs('images', $filename, 'public');
+        $image = $image->storeAs('feed_images', $filename, 'public');
         return $image;
     }
     public function deleteExistingImage(){

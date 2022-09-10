@@ -16,7 +16,7 @@
                 @endif
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()?->getFullName() ?? 'Administrator'}}</a>
+                <a href="#" class="d-block">{{ auth()->user()->getUserFullName() ?? 'Administrator'}}</a>
             </div>
         </div>
 
@@ -40,16 +40,16 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link @if(Request::is('admin/categories*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Categories
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link @if(Request::is('admin/ponds*')) active @endif" id="categories-link">
+                    <a href="{{route('ponds.index')}}" class="nav-link @if(Request::is('admin/ponds*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Ponds
@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link @if(Request::is('admin/feeds*')) active @endif" id="categories-link">
+                    <a href="{{route('feeds.index')}}" class="nav-link @if(Request::is('admin/feeds*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Feeds

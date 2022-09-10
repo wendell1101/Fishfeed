@@ -7,7 +7,7 @@
             <div class="calculation-header">
                 <h2 class="text-center fw-bold">Round Fish Pond Calculation</h2>
             </div>
-            <form>
+            <form id="calculate-form" action="#" method="get">
                 <div class="form-group mt-3">
                     <label for="pond-diameter">Diameter</label>
                     <input type="number" class="form-control" id="pond-diameter" placeholder="Enter Pond Diameter" required>
@@ -29,14 +29,14 @@
                     </select>
                 </div>
                 <div class="form-group mt-3">
-                    <button class="btn btn-success w-100">Calculate</button>
+                    <button class="btn btn-success w-100" type="submit" id="calculate-btn">Calculate</button>
                 </div>
             </form>
 
             <div class="result text-center mt-4">
                 <h5 class="fw-bold">Result</h5>
                 <h3 class="fw-bold text-danger">
-                    <span class="result-value">0</span>
+                    <span class="result-value" id="result">0</span>
                     <span class="result-unit">pcs</span>
                 </h3>
                 <small class="description">
@@ -46,4 +46,25 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script>
+        const diameter = document.getElementById('pond-diameter');
+        const height = document.getElementById('pond-height')
+        const standardPcs = document.getElementById('standard-pcs')
+        const calculateBtn = document.getElementById('calculate-btn')
+        const calculateForm = document.getElementById('calculate-form')
+        
+        let result = 0;
+
+        calculateForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            result = diameter.value * height.value * standardPcs.value;    
+            let resultValue = document.getElementById('result');
+            resultValue.textContent = result;
+        })
+
+    </script>
+
 @endsection

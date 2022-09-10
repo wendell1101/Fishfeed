@@ -24,6 +24,9 @@
                 <li>
                     <a class="nav-link text-white @if(Request::is('ponds_info*', 'fish_ponds', 'fish_reproduction')) active  @endif" href="{{route('ponds_info')}}">PONDS INFO</a>
                 </li>
+                <li>
+                    <a class="nav-link text-white @if(Request::is('feeds_info*')) active  @endif" href="{{route('feeds_info')}}">FEEDS INFO</a>
+                </li>
                 @auth
                 <li>
                     <a class="nav-link text-white @if(Request::is('profile*')) active  @endif" href="{{route('profile')}}">PROFILE</a>
@@ -35,6 +38,11 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        @if(auth()->user()->is_admin)
+                        <a class="dropdown-item" href="{{route('admin.dashboard')}}">
+                            Go to admin
+                        </a>
+                        @endif
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
