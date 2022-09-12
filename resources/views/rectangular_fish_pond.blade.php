@@ -43,8 +43,8 @@
                     <span class="result-value" id="result">0</span>
                     <span class="result-unit">pcs</span>
                 </h3>
-                <small class="description">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel asperiores doloribus atque cupiditate maiores quo, quos itaque necessitatibus optio in delectus esse voluptates rerum illo
+                <small class="description-rectangular-pond d-none">
+                    Many ponds in the Southeast are watershed ponds that have been built by damming valleys. These ponds are usually irregular in shape. Check first with your county SCS office for records on your pond, or for aerial photos in the SCS or ASCS office. If no good records exist then a reasonable estimate can be made by chaining or pacing off the pond margins and using the following procedures to calculate area.
                 </small>
             </div>
         </div>
@@ -60,14 +60,16 @@
         const standardPcs = document.getElementById('standard-pcs')
         const calculateBtn = document.getElementById('calculate-btn')
         const calculateForm = document.getElementById('calculate-form')
-        
+        const desc = document.getElementsByClassName('description-rectangular-pond');
+
         let result = 0;
 
         calculateForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            result = width.value * height.value * pondDepth.value * standardPcs.value;    
+            result = width.value * height.value * pondDepth.value * standardPcs.value;
             let resultValue = document.getElementById('result');
             resultValue.textContent = result;
+            desc[0].classList.remove('d-none');
         })
 
     </script>

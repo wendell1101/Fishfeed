@@ -10,11 +10,15 @@
                 <div class="card bg-light rounded-2 p-3 h-100">
                     <div class="round-type-calculation">
                         <img src="{{ asset('storage/' . $pond->image) }}" class="rounded-2" width="100%" alt="fish" class="fish" />
+
+                    </div>
+                    <div class="p-3">
+                        <h4 class="text-center m-0 fw-bold">{{ $pond->name }}</h4>
                     </div>
                     <a href="{{route('fish_ponds')}}" class="text-decoration-none">
-                        <button class="align-items-center d-flex justify-content-center btn btn-primary btn-lg mt-3 w-100" type="submit">
-                            <i class='bx bx-water me-1'></i>
-                            <p class="m-0">Types of Fish Ponds</p>
+                        <button class="align-items-center d-flex justify-content-center btn btn-primary btn-lg w-100" type="submit">
+                            <i class='bx bx-detail me-1'></i>
+                            <p class="m-0">See more details</p>
                         </button>
                     </a>
                 </div>

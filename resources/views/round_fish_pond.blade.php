@@ -39,8 +39,8 @@
                     <span class="result-value" id="result">0</span>
                     <span class="result-unit">pcs</span>
                 </h3>
-                <small class="description">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel asperiores doloribus atque cupiditate maiores quo, quos itaque necessitatibus optio in delectus esse voluptates rerum illo
+                <small class="description-round-pond d-none">
+                    Good fish farm managers must know the area and volume of all ponds and tanks. Exact measurement of area and volume is essential in order to calculate stocking rates and chemical applications. Stocking fish into a pond of uncertain area can result in poor production, more disease and possibly death. Chemical treatments can be ineffective if volume/area is underestimated and potentially lethal if it is overestimated.
                 </small>
             </div>
         </div>
@@ -55,14 +55,16 @@
         const standardPcs = document.getElementById('standard-pcs')
         const calculateBtn = document.getElementById('calculate-btn')
         const calculateForm = document.getElementById('calculate-form')
-        
+        const desc = document.getElementsByClassName('description-round-pond');
+
         let result = 0;
 
         calculateForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            result = diameter.value * height.value * standardPcs.value;    
+            result = diameter.value * height.value * standardPcs.value;
             let resultValue = document.getElementById('result');
             resultValue.textContent = result;
+            desc[0].classList.remove('d-none');
         })
 
     </script>
