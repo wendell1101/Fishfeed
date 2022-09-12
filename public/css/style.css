@@ -61,6 +61,22 @@ button {
   margin-top: 5px;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .round-type-calculation {
+    flex: 1 1 auto;
+}
+
+.round-type-calculation img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
 .round-type-calculation-wrapper, .rectangular-type-calculation-wrapper {
   display: flex;
   align-items: center;
