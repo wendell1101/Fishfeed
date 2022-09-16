@@ -13,10 +13,10 @@
           <img src="https://live.staticflickr.com/3880/15135120425_62fc162caa_b.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h1>
-              Lorem ipsum dolor sit amet.
+              Aquaculture
             </h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero voluptatem exercitationem maxime, quis commodi dolor! Error quaerat debitis id esse atque, recusandae doloribus delectus placeat odio quod veniam sit suscipit.
+                The term aquaculture broadly refers to the cultivation of aquatic organisms in controlled aquatic environments for any commercial, recreational or public purpose. The breeding, rearing and harvesting of plants and animals takes place in all types of water environments including ponds, rivers, lakes, the ocean and man-made “closed” systems on land.
             </p>
           </div>
         </div>
@@ -24,10 +24,10 @@
           <img src="https://constructiontoday.co.ke/wp-content/uploads/2021/08/15FishFarm-759x500-1.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h1>
-              Lorem ipsum dolor sit amet, consectetur adipisicing.
+                Overview of Aquaculture Methods and Practices
             </h1>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita placeat adipisci nihil quos. Debitis, ipsum. Saepe, repellat eligendi mollitia facilis dignissimos id, nulla perspiciatis illo rerum fugiat similique delectus odio.
+                A number of aquaculture practices are used world-wide in three types of environment (freshwater, brackishwater, and marine) for a great variety of culture organisms. Freshwater aquaculture is carried out either in fish ponds, fish pens, fish cages or, on a limited scale, in rice paddies. Brackishwater aquaculture is done mainly in fish ponds located in coastal areas. Marine culture employs either fish cages or substrates for molluscs and seaweeds such as stakes, ropes, and rafts. (Summarized information on major culture systems and practices used for the principal culture organisms on a regional basis
             </p>
           </div>
         </div>
@@ -35,10 +35,10 @@
           <img src="https://agricfy.com/wp-content/uploads/2020/12/Ponds.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h1>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Feeding of fish
             </h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde delectus veritatis sequi ratione quos! Dicta consectetur voluptas hic, praesentium numquam autem tempore, temporibus laborum vel, fuga error itaque illo culpa vero modi quod odit inventore at cum qui obcaecati rem!
+                A wide variety of feed ingredients is used to prepare supplemental/artificial feeds. The simplest fish feeds are prepared at the pond site using locally available raw materials like rice or corn bran, copra meal, and rice mill sweepings as sources of carbohydrates. These are usually mixed with animal protein like trash fish/fish meal, shrimp heads, and snail meat. Supplemental feeds for tilapia are prepared using 80% rice bran and 20% fish meal. Those for shrimps in improved extensive culture (low-density stocking but given dietary supplements for increased growth/production) usually include fresh raw materials like snail/mussel/clam meat or carabao hide and other slaughterhouse leftovers.
             </p>
           </div>
         </div>
