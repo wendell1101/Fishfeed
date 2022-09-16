@@ -33,7 +33,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link @if(Request::is('admin/user*')) active @endif" id="categories-link">
+                    <a href="{{route('users.index')}}" class="nav-link @if(Request::is('admin/user*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users

@@ -8,6 +8,7 @@ use App\Http\Controllers\PondsController;
 use App\Http\Controllers\FeedsInfoController;
 use App\Http\Controllers\PondsInfoController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => '/admin', 'middleware' => ['auth','is_admin']], function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    Route::resource('users', AdminUserController::class);
+    Route::get('users-delete/{user}', [AdminUserController::class, 'delete'])->name('admin.users.delete');
 
     Route::resource('ponds', PondsController::class);
     Route::get('ponds-delete/{pond}', [PondsController::class, 'delete'])->name('admin.ponds.delete');
