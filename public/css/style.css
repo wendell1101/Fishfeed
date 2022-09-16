@@ -14,7 +14,7 @@ button {
   background-color: #00041a;
 }
 
-.home-wrapper, .login-wrapper, .register-wrapper {
+.home-wrapper, .login-wrapper, .register-wrapper, .forgot-password-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,3 +100,6 @@ button {
     border-bottom-right-radius: 0% !important;
 }
 
+.no-feeds-found i{
+    font-size: 150px;
+}
