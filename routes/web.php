@@ -57,6 +57,10 @@ Route::get('/rectangular_fish_pond', function(){
     return view('rectangular_fish_pond');
 })->name('rectangular_fish_pond');
 
+Route::get('/fish_feeds', function(){
+    return view('fish_feeds');
+})->name('fish_feeds');
+
 Route::get('/calculation', function(){
     return view('calculation');
 })->name('calculation');

@@ -3,9 +3,9 @@
 @section('content')
   <div class="container">
     <div class="row mt-5">
-        <h1 class="text-center fw-bold">Type of Fish Ponds</h1>
+        <h1 class="text-center fw-bold">Pond Details</h1>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5 mb-5">
         <div class="bg-light rounded-2 p-0">
             <div class="pond-type">
                 <img src="{{asset('imgs/earthen-pond.png')}}" class="fish-pond-img rounded-2" width="30%"/>
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5">
+    {{-- <div class="row mt-5">
         <div class="bg-light rounded-2 p-0">
             <div class="pond-type">
                 <img src="{{asset('imgs/concrete-pond.png')}}" class="fish-pond-img rounded-2" width="30%"/>
@@ -349,7 +349,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
   </div>
 
 @endsection

@@ -61,7 +61,23 @@ button {
   margin-top: 5px;
 }
 
-.round-type-calculation-wrapper, .rectangular-type-calculation-wrapper {
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .round-type-calculation {
+    flex: 1 1 auto;
+}
+
+.round-type-calculation img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+.round-type-calculation-wrapper, .rectangular-type-calculation-wrapper, .fish-feeds-calculation-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +86,7 @@ button {
   flex-direction: column;
 }
 
-.pond-calculation {
+.pond-calculation, .fish-feed-calculation {
   background-color: #00041a;
   width: 450px;
 }
