@@ -22,7 +22,10 @@
             </div>
             @endforeach
             @else
-            <h2>No Feed Found</h2>
+            <div class="no-feeds-found text-center">
+                <i class='bx bx-search-alt-2' ></i>
+                <h2>No Feeds Found</h2>
+            </div>
             @endif
             <!-- <div class="col-lg-6">
                 <div class="bg-light rounded-2 p-3 h-100">

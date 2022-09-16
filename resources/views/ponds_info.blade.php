@@ -5,6 +5,7 @@
 <div class="container">
     <div class="calculation-wrapper">
         <div class="row gx-3 gy-3 w-100">
+            @if($ponds->count() > 0)
             @foreach($ponds as $pond)
             <div class="col-lg-6">
                 <div class="card bg-light rounded-2 p-3 h-100">
@@ -24,6 +25,12 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <div class="no-feeds-found text-center">
+                <i class='bx bx-search-alt-2' ></i>
+                <h2>No  Ponds Found</h2>
+            </div>
+            @endif
             <!-- <div class="col-lg-6">
                 <div class="bg-light rounded-2 p-3 h-100">
                     <div class="round-type-calculation">
