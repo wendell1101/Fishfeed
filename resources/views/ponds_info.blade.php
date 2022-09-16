@@ -9,7 +9,7 @@
             @foreach($ponds as $pond)
             <div class="col-lg-6">
                 <div class="card bg-light rounded-2 p-3 h-100">
-                    <div class="round-type-calculation">
+                    <div class="img-wrapper">
                         <img src="{{ asset('storage/' . $pond->image) }}" class="rounded-2" width="100%" alt="fish" class="fish" />
 
                     </div>
