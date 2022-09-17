@@ -62,6 +62,8 @@
         const calculateForm = document.getElementById('calculate-form')
         const desc = document.getElementsByClassName('description-rectangular-pond');
 
+        const calculationName = 'Rectangular Fish Pond Calculation'
+
         let result = 0;
 
         calculateForm.addEventListener('submit', (e) => {
@@ -70,6 +72,17 @@
             let resultValue = document.getElementById('result');
             resultValue.textContent = result;
             desc[0].classList.remove('d-none');
+
+            axios.post('/calculation_history', {
+                calculation_name: calculationName,
+                result: result
+            })
+            .then(function(response) {
+                console.log('success: ', response);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
         })
 
     </script>

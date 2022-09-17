@@ -9,6 +9,7 @@ use App\Http\Controllers\FeedsInfoController;
 use App\Http\Controllers\PondsInfoController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\CalculationHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,12 @@ Route::get('/about', function(){
 
 Route::get('/ponds_info',[PondsInfoController::class, 'index'])->name('ponds_info');
 Route::get('/feeds_info',[FeedsInfoController::class, 'index'])->name('feeds_info');
+
+Route::group(['middleware' => ['auth','is_admin']], function () {
+    Route::get('/calculation_history',[CalculationHistoryController::class, 'index'])->name('calculation_history');
+    Route::post('/calculation_history',[CalculationHistoryController::class, 'store'])->name('calculation_history.store');
+});
+
 
 Route::get('/round_fish_pond', function(){
     return view('round_fish_pond');

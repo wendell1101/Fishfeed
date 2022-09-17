@@ -49,24 +49,37 @@
 @endsection
 
 @section('js')
-    <script>
-        const diameter = document.getElementById('pond-diameter');
-        const height = document.getElementById('pond-height')
-        const standardPcs = document.getElementById('standard-pcs')
-        const calculateBtn = document.getElementById('calculate-btn')
-        const calculateForm = document.getElementById('calculate-form')
-        const desc = document.getElementsByClassName('description-round-pond');
+<script>
+    const diameter = document.getElementById('pond-diameter');
+    const height = document.getElementById('pond-height')
+    const standardPcs = document.getElementById('standard-pcs')
+    const calculateBtn = document.getElementById('calculate-btn')
+    const calculateForm = document.getElementById('calculate-form')
+    const desc = document.getElementsByClassName('description-round-pond');
 
-        let result = 0;
+    const calculationName = 'Round Fish Pond Calculation'
 
-        calculateForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            result = diameter.value * height.value * standardPcs.value;
-            let resultValue = document.getElementById('result');
-            resultValue.textContent = result;
-            desc[0].classList.remove('d-none');
-        })
+    let result = 0;
 
-    </script>
+    calculateForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        result = diameter.value * height.value * standardPcs.value;
+        let resultValue = document.getElementById('result');
+        resultValue.textContent = result;
+        desc[0].classList.remove('d-none');
+
+        axios.post('/calculation_history', {
+                calculation_name: calculationName,
+                result: result
+            })
+            .then(function(response) {
+                console.log('success: ', response);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    })
+</script>
 
 @endsection

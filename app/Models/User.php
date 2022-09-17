@@ -38,6 +38,10 @@ class User extends Authenticatable
         return $this->first_name . ' ' . $this->last_name;
     }
 
+    public function calculation_history(){
+        return $this->hasMany(CalculationHistory::class);
+    }
+
     public function storeImage($image){
         $filename = time() . '-' . $image->getClientOriginalName();
         $image = $image->storeAs('user_images', $filename, 'public');
