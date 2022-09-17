@@ -19,7 +19,7 @@
                     <a class="nav-link text-white @if(Request::is('about*')) active  @endif" href="{{route('about')}}">ABOUT US</a>
                 </li>
                 <li>
-                    <a class="nav-link text-white @if(Request::is('calculation*', 'round_fish_pond', 'rectangular_fish_pond')) active  @endif" href="{{route('calculation')}}">CALCULATION</a>
+                    <a class="nav-link text-white @if(Request::is('calculation*', 'round_fish_pond', 'rectangular_fish_pond', 'fish_feeds')) active  @endif" href="{{route('calculation')}}">CALCULATION</a>
                 </li>
                 <li>
                     <a class="nav-link text-white @if(Request::is('ponds_info*', 'fish_ponds', 'fish_reproduction')) active  @endif" href="{{route('ponds_info')}}">PONDS INFO</a>

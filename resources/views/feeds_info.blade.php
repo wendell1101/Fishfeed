@@ -8,8 +8,8 @@
             @if($feeds->count() > 0)
             @foreach($feeds as $feed)
             <div class="col-lg-6">
-                <div class="bg-light rounded-2 p-3 h-100">
-                    <div class="round-type-calculation">
+                <div class="card bg-light rounded-2 p-3 h-100">
+                    <div class="img-wrapper">
                         <img src="{{ asset('storage/' . $feed->image) }}" class="rounded-2" width="100%" alt="fish" class="fish" />
                     </div>
                     <a href="#" class="text-decoration-none">
@@ -22,7 +22,10 @@
             </div>
             @endforeach
             @else
-            <h2>No Feed Found</h2>
+            <div class="no-feeds-found text-center">
+                <i class='bx bx-search-alt-2' ></i>
+                <h2>No Feeds Found</h2>
+            </div>
             @endif
             <!-- <div class="col-lg-6">
                 <div class="bg-light rounded-2 p-3 h-100">

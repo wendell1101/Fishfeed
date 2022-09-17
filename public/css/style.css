@@ -14,7 +14,7 @@ button {
   background-color: #00041a;
 }
 
-.home-wrapper, .login-wrapper, .register-wrapper {
+.home-wrapper, .login-wrapper, .register-wrapper, .forgot-password-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,8 +66,15 @@ button {
     flex-direction: column;
 }
 
-.card .round-type-calculation {
+.card .img-wrapper {
     flex: 1 1 auto;
+}
+
+.img-wrapper img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
 }
 
 .round-type-calculation img {
@@ -76,6 +83,8 @@ button {
     object-fit: cover;
     filter: brightness(0.5);
 }
+
+
 
 .round-type-calculation-wrapper, .rectangular-type-calculation-wrapper, .fish-feeds-calculation-wrapper {
   display: flex;
@@ -100,3 +109,6 @@ button {
     border-bottom-right-radius: 0% !important;
 }
 
+.no-feeds-found i{
+    font-size: 150px;
+}
