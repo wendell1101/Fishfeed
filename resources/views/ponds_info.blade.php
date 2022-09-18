@@ -16,8 +16,8 @@
                     <div class="p-3">
                         <h4 class="text-center m-0 fw-bold">{{ $pond->name }}</h4>
                     </div>
-                    <a href="{{route('fish_ponds')}}" class="text-decoration-none">
-                        <button class="align-items-center d-flex justify-content-center btn btn-primary btn-lg w-100" type="submit">
+                    <a href="{{route('ponds_info.show', $pond->id)}}" class="text-decoration-none">
+                        <a href="{{route('ponds_info.show', $pond->id)}}" class="align-items-center d-flex justify-content-center btn btn-primary btn-lg w-100">
                             <i class='bx bx-detail me-1'></i>
                             <p class="m-0">See more details</p>
                         </button>

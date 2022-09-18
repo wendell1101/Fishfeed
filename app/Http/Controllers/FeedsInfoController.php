@@ -12,4 +12,10 @@ class FeedsInfoController extends Controller
         $feeds = Feed::all();
         return view('feeds_info', compact('feeds'));
     }
+
+    public function show($id)
+    {
+        $feed = Feed::find($id);
+        return view('feeds_info_detail', compact('feed'));
+    }
 }

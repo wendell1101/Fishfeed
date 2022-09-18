@@ -46,7 +46,7 @@ $title = 'Ponds';
                         <td>
                             <img src="{{ asset('storage/' . $pond->image) }}" alt="image" width="50" height="50">
                         </td>
-                        <td>{{ $pond->name}}</td>
+                        <td><a href="{{route('ponds.show', $pond->id)}}">{{ $pond->name}}</a></td>
                         <td>
                             {{ Str::words($pond->description, 1)  }}
                         </td>

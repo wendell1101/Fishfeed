@@ -18,6 +18,10 @@ class FeedController extends Controller
         return view('admin.feeds.index')->with('feeds', $feeds);
     }
 
+    public function show(Feed $feed)
+    {
+        return view('admin.feeds.show', compact('feed'));
+    }
     /**
      * Show the form for creating a new resource.
      *

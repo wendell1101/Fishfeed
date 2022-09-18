@@ -51,7 +51,7 @@ $title = 'Users';
                             <img src="https://ui-avatars.com/api/?name={{ $user?->first_name . ' ' . $user?->last_name }}" class="img-circle elevation-2"  width="50" height="50" alt="User Image">
                             @endif
                         </td>
-                        <td>{{ $user->getUserFullName()}}</td>
+                        <td><a href="{{route('users.show', $user->id)}}">{{ strtoupper($user->getUserFullName())}}</a></td>
                         <td>
                             {{ $user->email  }}
                         </td>

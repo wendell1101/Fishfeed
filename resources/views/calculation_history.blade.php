@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div style="min-height:80vh" class="mt-4">
+    <div style="min-height:80vh" class="mt-4 card p-2 mb-2">
         <div class="table-responsive">
+        {{$calculationHistories->links()}}
             @if(count($calculationHistories))
             <table id="example" class="table table-striped table-bordered nowrap">
                 <thead>
@@ -21,7 +22,7 @@
                         <td>{{$loop->index+1}}</td>
                         <td>{{ $history->calculation_name}}</td>
                         <td>{{ $history->result}}</td>
-                        <td>{{ $history->created_at}}</td>
+                        <td>{{ $history->getConvertedDateTimeAttribute($history->created_at)}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -36,12 +37,9 @@
 
 @section('js')
 <script>
-    $(document).ready(function() {
-        var table = $('#example').DataTable({
-            responsive: true
-        });
-
-        new $.fn.dataTable.FixedHeader(table);
-    });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    $(document).ready( function () {
+        $('#example').DataTable();
+    } );
 </script>
 @endsection

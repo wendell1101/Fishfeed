@@ -9,7 +9,7 @@ class CalculationHistoryController extends Controller
 {
     public function index()
     {
-        $calculationHistories = auth()->user()->calculation_history;
+        $calculationHistories = CalculationHistory::where('user_id', auth()->id())->orderBy('created_at', 'DESC')->paginate(10);
         return view('calculation_history', compact('calculationHistories'));
     }
 

@@ -10,12 +10,16 @@
             <div class="col-lg-6">
                 <div class="card bg-light rounded-2 p-3 h-100">
                     <div class="img-wrapper">
-                        <img src="{{ asset('storage/' . $feed->image) }}" class="rounded-2" width="100%" alt="fish" class="fish" />
+                        <img src="{{ asset('storage/' . $feed->image) }}" class="rounded-2" width="100%" alt="feed" class="fish" />
+
                     </div>
-                    <a href="#" class="text-decoration-none">
-                        <button class="align-items-center d-flex justify-content-center btn btn-primary btn-lg mt-3 w-100" type="submit">
-                            <i class='bx bx-water me-1'></i>
-                            <p class="m-0">Types of Feeds</p>
+                    <div class="p-3">
+                        <h4 class="text-center m-0 fw-bold">{{ $feed->name }}</h4>
+                    </div>
+                    <a href="{{route('feeds_info.show', $feed->id)}}" class="text-decoration-none">
+                        <a href="{{route('feeds_info.show', $feed->id)}}" class="align-items-center d-flex justify-content-center btn btn-primary btn-lg w-100">
+                            <i class='bx bx-detail me-1'></i>
+                            <p class="m-0">See more details</p>
                         </button>
                     </a>
                 </div>
@@ -24,7 +28,7 @@
             @else
             <div class="no-feeds-found text-center">
                 <i class='bx bx-search-alt-2' ></i>
-                <h2>No Feeds Found</h2>
+                <h2>No  Ponds Found</h2>
             </div>
             @endif
             <!-- <div class="col-lg-6">

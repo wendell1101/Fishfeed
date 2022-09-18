@@ -54,7 +54,7 @@
                 <img src="{{ asset('storage/' . $feed->image) }}" alt="image" class="img-fluid shadow mt-3" width="300" height="300">
             </div>
             <div class="form-group">
-                <a href="{{route('feeds.index', $feed->id)}}" class="btn btn-secondary">
+                <a href="{{route('feeds.index')}}" class="btn btn-secondary">
                     Cancel
                 </a>
                 <button type="submit" class="btn btn-success">

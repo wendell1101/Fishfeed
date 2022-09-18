@@ -53,7 +53,7 @@
                 <img src="{{ asset('storage/' . $pond->image) }}" alt="image" class="img-fluid shadow mt-3" width="300" height="300">
             </div>
             <div class="form-group">
-                <a href="{{route('ponds.index', $pond->id)}}" class="btn btn-secondary">
+                <a href="{{route('ponds.index')}}" class="btn btn-secondary">
                     Cancel
                 </a>
                 <button type="submit" class="btn btn-success">

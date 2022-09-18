@@ -1,15 +1,17 @@
 <?php
 
 use App\Models\Pond;
+use App\Models\CalculationHistory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PondsController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\FeedsInfoController;
 use App\Http\Controllers\PondsInfoController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CalculationHistoryController;
+use App\Http\Controllers\AdminCalculationHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,9 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth','is_admin']], functi
     Route::get('ponds-delete/{pond}', [PondsController::class, 'delete'])->name('admin.ponds.delete');
     Route::resource('feeds', FeedController::class);
     Route::get('feeds-delete/{feed}', [FeedController::class, 'delete'])->name('admin.feeds.delete');
+
+    Route::get('calculation_histories', [AdminCalculationHistoryController::class, 'index'])->name('calculation_histories.index');
+    Route::get('calculation_histories-by-user/{user}', [AdminCalculationHistoryController::class, 'getCalculationHistoryByUser'])->name('calculation_histories.show');
 });
 
 Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('update_profile')->middleware('auth');
@@ -48,7 +53,9 @@ Route::get('/about', function(){
 })->name('about');
 
 Route::get('/ponds_info',[PondsInfoController::class, 'index'])->name('ponds_info');
+Route::get('/ponds_info/{id}',[PondsInfoController::class, 'show'])->name('ponds_info.show');
 Route::get('/feeds_info',[FeedsInfoController::class, 'index'])->name('feeds_info');
+Route::get('/feeds_info/{id}',[FeedsInfoController::class, 'show'])->name('feeds_info.show');
 
 Route::group(['middleware' => ['auth','is_admin']], function () {
     Route::get('/calculation_history',[CalculationHistoryController::class, 'index'])->name('calculation_history');
