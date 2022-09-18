@@ -28,14 +28,14 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>1 </h3>
+                        <h3>{{$pondsCount}}</h3>
 
-                        <p>Available Services</p>
+                        <p>Ponds</p>
                     </div>
-                    <div class="icon">
-                        <i class="fas fa-tools"></i>
+                    <div class="icon"> 
+                    <i class='bx bx-detail me-1'></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{route('ponds.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -43,14 +43,14 @@
                 <!-- small box -->
                 <div class="small-box bg-navy">
                     <div class="inner">
-                        <h3>3</h3>
+                        <h3>{{ $feedsCount }}</h3>
 
-                        <p>Reservations</p>
+                        <p>Feeds</p>
                     </div>
                     <div class="icon">
                         <i class="far fa-calendar text-light"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{route('feeds.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -58,14 +58,14 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>4</h3>
+                        <h3>{{ $usersCount}}</h3>
 
-                        <p>User Registrations</p>
+                        <p>Users</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{route('users.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -73,43 +73,19 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>6</h3>
+                        <h3>{{ $calculationHistoriesCount }}</h3>
 
-                        <p>Available Products</p>
+                        <p>Calculation Histories</p>
                     </div>
                     <div class="icon">
-                        <i class="fas fa-store"></i>
+                        <i class="ion ion-person-add"></i>
                     </div>
                     <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-        <div class="row container-fluid">
-            <!-- ./col -->
-            <div class="row w-100">
-                <div class="col-md-6 col-sm-12 mt-3 text-center mx-auto py-5" >
-                    <h4 class="text-center text-bold">Reservations Over time</h4>
-                    <canvas id="reservationDates" style="position: relative; height:40vh; width:80vw"></canvas>
-                </div>
 
-                <div class="col-md-4 col-sm-12 mt-3 text-center mx-auto py-5" >
-                    <h4 class="text-center text-bold">Reservations Status</h4>
-                    <canvas id="reservationStatus" style="position: relative; height:40vh; width:80vw"></canvas>
-                </div>
-            </div>
-
-            <div class="row w-100 border-top py-3">
-                <div class="col-md-4 offset-md-1 col-sm-12 offset-sm-0">
-                    <h4 class="text-center text-bold">Verified Users </h4>
-                    <canvas id="verifiedUsers" style="height:40vh; width:;"></canvas>
-                </div>
-
-                <div class="col-md-4 offset-md-1 col-sm-12 offset-sm-0">
-                    <h4 class="text-center text-bold">User Profile Completion</h4>
-                    <canvas id="myChart" style="height:40vh; width:;"></canvas>
-                </div>
-            </div>
-
-
+            <div class="col-md-6 mt-5">
+            <canvas id="myChart" width="400" height="200"></canvas>
         </div>
     </div>
 </section>
@@ -118,5 +94,43 @@
 
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script>
+    var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Ponds', 'Feeds', 'Users', 'Calculation Histories'],
+        datasets: [{
+            label: 'Current Data',
+            data: [{{ $pondsCount }}, {{ $feedsCount }}, {{ $usersCount }}, {{ $calculationHistoriesCount }}],
+            backgroundColor: [
+                '#17a2b8',
+                '#28a745',
 
+                '#ffc107',
+
+                '#6c757d',
+                
+            ],
+            borderColor: [
+                '#333',
+                '#333',
+                '#333',
+                '#333',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
 @endsection

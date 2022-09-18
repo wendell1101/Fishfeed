@@ -18,6 +18,10 @@ class PondsController extends Controller
         return view('admin.ponds.index')->with('ponds', $ponds);
     }
 
+    public function show(Pond $pond)
+    {
+        return view('admin.ponds.show', compact('pond'));
+    }
     /**
      * Show the form for creating a new resource.
      *

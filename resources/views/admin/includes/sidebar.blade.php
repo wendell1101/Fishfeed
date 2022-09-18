@@ -33,7 +33,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link @if(Request::is('admin/user*')) active @endif" id="categories-link">
+                    <a href="{{route('users.index')}}" class="nav-link @if(Request::is('admin/user*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
@@ -61,6 +61,14 @@
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Feeds
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('calculation_histories.index')}}" class="nav-link @if(Request::is('admin/calculation_histories*')) active @endif" id="categories-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Calculation Histories
                         </p>
                     </a>
                 </li>
