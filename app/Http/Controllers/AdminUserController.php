@@ -64,7 +64,8 @@ class AdminUserController extends Controller
             'city' =>  $request->city,
             'zip_code' =>  $request->zip_code,
             'country' =>  $request->country,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'is_admin' => $request->has('is_admin') ? 1 : 0
         ]);
 
         return redirect()->route('users.index')->with('success', 'User has been created successfully');
@@ -96,6 +97,7 @@ class AdminUserController extends Controller
             'city' =>  $request->city,
             'zip_code' =>  $request->zip_code,
             'country' =>  $request->country,
+            'is_admin' => $request->has('is_admin') ? 1 : 0
         ]);
 
 
