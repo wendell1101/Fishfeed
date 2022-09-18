@@ -35,6 +35,7 @@ $title = 'Users';
                         <th>Image</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -54,6 +55,13 @@ $title = 'Users';
                         <td><a href="{{route('users.show', $user->id)}}">{{ strtoupper($user->getUserFullName())}}</a></td>
                         <td>
                             {{ $user->email  }}
+                        </td>
+                        <td>
+                            @if($user->is_admin)
+                            <span class="text-success">Admin</span>
+                            @else
+                            <span class="text-muted">Customer</span>
+                            @endif
                         </td>
                         <td>
                             <div class="flex">

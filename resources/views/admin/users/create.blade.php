@@ -90,6 +90,12 @@
                         <label for="contact_number">Contact Number</label>
                         <input type="number" name="contact_number" id="contact_number" value="{{old('contact_number')}}" class="form-control" required>
                     </div>
+
+                    <div class="col-md-4 mb-2 form-group">
+                        <label for="role">Role</label><br>
+                        <input type="checkbox" name="is_admin"> 
+                        <span>Admin</span>
+                    </div>
                 </div>
             </div>
 
