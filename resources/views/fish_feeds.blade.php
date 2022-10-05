@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="fish-feeds-calculation-wrapper">
+<div class="feed-calc">
+    <div class="fish-feeds-calculation-wrapper" style="margin-top: 100px" >
         <div class="fish-feed-calculation text-white p-5 rounded">
             <div class="calculation-header">
                 <h2 class="text-center fw-bold">Fish Feed Calculation:</h2>
@@ -17,14 +17,25 @@
                     <input type="number" class="form-control" id="total-fingerlings" placeholder="Enter quantity of fingerlings" required>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="month">Month:
+                    <label for="month">Feed rate:
                     </label>
                     <select class="form-select" required id="month">
                         <option selected disabled>Select</option>
-                        <option value="1st month">1st month</option>
-                        <option value="2nd month">2nd month</option>
-                        <option value="3rd month">3rd month</option>
-                        <option value="4th month">4th month</option>
+                        <option value="15">15%</option>
+                        <option value="14">14%</option>
+                        <option value="13">13%</option>
+                        <option value="12">12%</option>
+                        <option value="11">11%</option>
+                        <option value="10">10%</option>
+                        <option value="9">9%</option>
+                        <option value="8">8%</option>
+                        <option value="7">7%</option>
+                        <option value="6">6%</option>
+                        <option value="5">5%</option>
+                        <option value="4">4%</option>
+                        <option value="3">3%</option>
+                        <option value="2">2%</option>
+                        <option value="1">1%</option>
                     </select>
                 </div>
                 <div class="form-group mt-3">
@@ -76,6 +87,7 @@
                 </div>
             </div>
         </div>
+            <iframe style="margin-top: 200px" width="100%" height="710" src="https://www.youtube.com/embed/1vE1qNQ6Aic" title="Feeding FRENZY of Nile Tilapia in Aquaponics Facility" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>
 @endsection
