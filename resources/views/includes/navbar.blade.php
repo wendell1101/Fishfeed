@@ -29,7 +29,10 @@
                 </li>
                 @auth
                 <li>
-                    <a class="nav-link text-white @if(Request::is('calculation_history*')) active  @endif" href="{{route('calculation_history')}}">CALCULATION HISTORY</a>
+                    <a class="nav-link text-white @if(Request::is('calculation_history*')) active  @endif" href="{{route('calculation_history')}}">PONDS CALCULATION HISTORY</a>
+                </li>
+                <li>
+                    <a class="nav-link text-white @if(Request::is('feed_calculation_history*')) active  @endif" href="{{route('feed_calculation_history')}}">FEEDS CALCULATION HISTORY</a>
                 </li>
                 <li>
                     <a class="nav-link text-white @if(Request::is('profile*')) active  @endif" href="{{route('profile')}}">PROFILE</a>
