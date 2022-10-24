@@ -12,6 +12,7 @@ use App\Http\Controllers\PondsInfoController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CalculationHistoryController;
 use App\Http\Controllers\AdminCalculationHistoryController;
+use App\Http\Controllers\FeedCalculationHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth','is_admin']], functi
     Route::get('calculation_histories-by-user/{user}', [AdminCalculationHistoryController::class, 'getCalculationHistoryByUser'])->name('calculation_histories.show');
 });
 
+
 Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('update_profile')->middleware('auth');
 Auth::routes();
 
@@ -57,9 +59,12 @@ Route::get('/ponds_info/{id}',[PondsInfoController::class, 'show'])->name('ponds
 Route::get('/feeds_info',[FeedsInfoController::class, 'index'])->name('feeds_info');
 Route::get('/feeds_info/{id}',[FeedsInfoController::class, 'show'])->name('feeds_info.show');
 
-Route::group(['middleware' => ['auth','is_admin']], function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/calculation_history',[CalculationHistoryController::class, 'index'])->name('calculation_history');
     Route::post('/calculation_history',[CalculationHistoryController::class, 'store'])->name('calculation_history.store');
+
+    Route::get('/feed_calculation_history',[FeedCalculationHistoryController::class, 'index'])->name('feed_calculation_history');
+    Route::post('/feed_calculation_history',[FeedCalculationHistoryController::class, 'store'])->name('feed_calculation_history.store');
 });
 
 

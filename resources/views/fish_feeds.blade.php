@@ -7,19 +7,19 @@
             <div class="calculation-header">
                 <h2 class="text-center fw-bold">Fish Feed Calculation:</h2>
             </div>
-            <form id="calculate-form" action="#" method="get">
+            <form id="calculate-form" action="#" method="post">
                 <div class="form-group mt-3">
-                    <label for="avg-body-weight">Average body weight:</label>
-                    <input type="number" class="form-control" id="avg-body-weight" placeholder="Enter body weight" required>
+                    <label for="abw">Average body weight:</label>
+                    <input type="number" class="form-control" step=".01" id="abw" placeholder="Enter body weight" required>
                 </div>
                 <div class="form-group mt-3">
                     <label for="total-fingerlings">Total quantity of fingerlings:</label>
                     <input type="number" class="form-control" id="total-fingerlings" placeholder="Enter quantity of fingerlings" required>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="month">Feed rate:
+                    <label for="feed-rate-percentage">Feed rate:
                     </label>
-                    <select class="form-select" required id="month">
+                    <select class="form-select" required id="feed-rate-percentage">
                         <option selected disabled>Select</option>
                         <option value="15">15%</option>
                         <option value="14">14%</option>
@@ -46,43 +46,51 @@
 
             <div class="result text-center mt-4">
                 <h5 class="fw-bold">Result</h5>
-                <h3 class="fw-bold text-danger">
+                <!-- <h3 class="fw-bold text-danger">
                     <span class="result-value" id="result">1 monthly feeding</span>
-                </h3>
+                </h3> -->
                <div class="d-flex align-items-center justify-content-between">
                     <small class="">Survival rate:</small>
                     <small class="fw-bold text-danger">
-                        <span class="result-value" id="total-feeding">90%</span>
+                        <span class="result-value" id="survival-rate">0%</span>
                     </small>
                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                    <small class="">Feed rate:</small>
+               <div class="d-flex align-items-center justify-content-between">
+                    <small class="">Types of feed:</small>
                     <small class="fw-bold text-danger">
-                        <span class="result-value" id="total-feeding">8%</span>
+                        <span class="result-value" id="types-of-feed">Fish Grower</span>
                     </small>
-                </div>
+               </div>
+               
                 <div class="d-flex align-items-center justify-content-between">
                     <small class="">DFR (daily feed requirements total):</small>
                     <small class="fw-bold text-danger">
-                        <span class="result-value" id="total-feeding">11.52 kilos</span>
+                        <span class="result-value" id="dfr">0 kgs</span>
                     </small>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                    <small class="">Daily feed 3 to 4 times a day:</small>
+                    <small class="">Total monthly DFR:</small>
                     <small class="fw-bold text-danger">
-                        <span class="result-value" id="total-feeding">3.8 kilos</span>
+                        <span class="result-value" id="monthly-dfr">0 kgs</span>
                     </small>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                    <small class="">Total monthly feeds allowance:</small>
+                    <small class="">Sacks pcs per month:</small>
                     <small class="fw-bold text-danger">
-                        <span class="result-value" id="total-feeding">345.6 kilos</span>
+                        <span class="result-value" id="sacks-per-month">0</span>
+                    </small>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between">
+                    <small class="">Size of fish:</small>
+                    <small class="fw-bold text-danger">
+                        <span class="result-value" id="size-of-fish">0</span>
                     </small>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                    <small class="">Sacks pcs for 1st month:</small>
+                    <small class="">Feed rate:</small>
                     <small class="fw-bold text-danger">
-                        <span class="result-value" id="total-feeding">14</span>
+                        <span class="result-value" id="feed-rate">0 %</span>
                     </small>
                 </div>
             </div>
@@ -94,22 +102,123 @@
 
 @section('js')
     <script>
-        const width = document.getElementById('pond-width');
-        const height = document.getElementById('pond-height')
-        const pondDepth = document.getElementById('pond-depth')
-        const standardPcs = document.getElementById('standard-pcs')
-        const calculateBtn = document.getElementById('calculate-btn')
+
+        const abw = document.getElementById('abw');
+        let abwValue = abw.value;
+        const qtyOfFingerlings = document.getElementById('total-fingerlings')
+        const feedRatePercentage = document.getElementById('feed-rate-percentage')
+
         const calculateForm = document.getElementById('calculate-form')
-        const desc = document.getElementsByClassName('description-rectangular-pond');
+
+
+
+        const survivalRate = document.getElementById('survival-rate')
+        let survivalRateValue = 0;
+        const typesOfFeed = document.getElementById('types-of-feed')
+        let typesOfFeedValue = '';
+        const dfr = document.getElementById('dfr')
+        let dfrValue = 0;
+        const monthlyDfr = document.getElementById('monthly-dfr')
+        let monthlyDfrValue = 0;
+        const sacksPerMonth = document.getElementById('sacks-per-month')
+        let sacksPerMonthValue = 0;
+        const sizeOfFish = document.getElementById('size-of-fish')
+        let sizeOfFishValue = 0
+        const feedRate = document.getElementById('feed-rate')
+        let feedRateValue = 0;
+
+        const calculationName = 'Round Fish Pond Calculation'
 
         let result = 0;
 
         calculateForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            result = width.value * height.value * pondDepth.value * standardPcs.value;
-            let resultValue = document.getElementById('result');
-            resultValue.textContent = result;
-            desc[0].classList.remove('d-none');
+
+            // survivalRate
+           if(abw.value >= 0.1 && abw.value <= 1)
+            {
+                survivalRateValue = 75;
+                survivalRate.textContent = "75%";
+            }else if(abw.value > 1 && abw.value <= 5){
+                survivalRateValue = 80;
+                survivalRate.textContent = "80%"
+            }else if(abw.value > 5 && abw.value <= 20){
+                survivalRateValue = 85;
+                survivalRate.textContent = "85%"
+            }else if(abw.value > 20 && abw.value <= 150){
+                survivalRateValue = 90;
+                survivalRate.textContent = "90%"
+            }else if(abw.value > 150 && abw.value <= 500){
+                survivalRateValue = 95;
+                survivalRate.textContent = "95%"
+            }
+
+            //types of feeds
+            if(abw.value >= 0.1 && abw.value <= 5){
+                typesOfFeedValue = 'Fish Fry Mash'
+                typesOfFeed.textContent = 'Fish Fry Mash'
+            }else if(abw.value >= 5 && abw.value <= 20){
+                typesOfFeedValue = 'Crumble'
+                typesOfFeed.textContent = 'Crumble'
+            }else if(abw.value >= 20 && abw.value <= 50){
+                typesOfFeedValue = 'Pellet'
+                typesOfFeed.textContent = 'Pellet'
+            }else if(abw.value >= 50 && abw.value <= 150){
+                typesOfFeedValue = 'Fish Grower'
+                typesOfFeed.textContent = 'Fish Grower'
+            }else if(abw.value > 150){
+                typesOfFeedValue = 'Fish Finisher'
+                typesOfFeed.textContent = 'Fish Finisher'
+            }
+
+            //DFR
+
+            dfrValue = (abw.value * qtyOfFingerlings.value * feedRatePercentage.value * survivalRateValue) / 1000;
+            dfrValue = dfrValue.toFixed(2)
+           
+            dfr.textContent = dfrValue + ' kgs';
+
+            // total monthly dfr
+            monthlyDfrValue = dfrValue * 30
+            monthlyDfrValue = monthlyDfrValue.toFixed(2)
+            monthlyDfr.textContent = monthlyDfrValue + ' kgs'
+
+
+            //sacks per month
+            sacksPerMonthValue = monthlyDfrValue / 25
+            sacksPerMonthValue = sacksPerMonthValue.toFixed(2)
+            sacksPerMonth.textContent = sacksPerMonthValue + ' pcs'
+
+            //size of fish
+            if(abw.value > 0.90){
+                sizeOfFishValue = 0
+                sizeOfFish.textContent = 'N/A'
+            }else{
+                sizeOfFishValue = abw.value;
+                sizeOfFish.textContent = sizeOfFishValue
+            }
+
+            //feedRate
+            feedRateValue = feedRatePercentage.value
+            feedRate.textContent = feedRateValue + ' %'
+   
+
+            axios.post('/feed_calculation_history', {
+                    abw: abw.value,
+                    feed_rate: feedRateValue,
+                    typs_of_feed: typesOfFeedValue,
+                    survival_rate: survivalRateValue,
+                    dfr: dfrValue,
+                    monthly_dfr: monthlyDfrValue,
+                    sacks_per_month: sacksPerMonthValue,
+                    size_of_fish: sizeOfFishValue,
+                })
+                .then(function(response) {
+                    console.log('success: ', response);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         })
 
     </script>
