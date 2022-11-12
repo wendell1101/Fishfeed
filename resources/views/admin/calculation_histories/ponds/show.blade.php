@@ -1,15 +1,19 @@
 @php
 $links = [
-[
-'name' => 'Home',
-'link' => '/admin/dashboard'
-],
-[
-'name' => 'Calculation Histories',
-'link' => route('calculation_histories.index')
-]
+    [
+    'name' => 'Home',
+    'link' => '/admin/dashboard'
+    ],
+    [
+    'name' => 'Calculation Histories',
+    'link' => route('pond_calculation_histories')
+    ],
+    [
+    'name' => 'By ' . $user->getUserFullName(),
+    'link' => route('pond_calculation_histories.show', $user->id)
+    ]
 ];
-$title = 'Calculation Histories';
+$title = 'Pond Calculation Histories';
 @endphp
 
 @extends('admin.base')
@@ -22,37 +26,34 @@ $title = 'Calculation Histories';
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid px-2 py-4 bg-white">
-        <x-alert />
-        @if($users->count())
+        <x-alert />        
+        @if($calculations->count())
         <div class="table-responsive">
+
             <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
                 <thead>
-                    <tr>
+                <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
+                        <th>Calculation Name</th>
+                        <th>Result</th>
+                        <th>Date Calculated</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach($users as $key => $user)
+                    @foreach($calculations as $key => $history)
                     <tr>
                         <td>{{$loop->index+1}}</td>
-                        <td><a href="{{route('users.show', $user->id)}}">{{ strtoupper($user->getUserFullName())}}</a></td>
-                        <td>
-                            {{ $user->email  }}
-                        </td>
-                        <td>
-                            <a href="{{route('calculation_histories.show', $user->id)}}" class="btn btn-success">View calculations</a>
-                        </td>
+                        <td>{{ $history->calculation_name}}</td>
+                        <td>{{ $history->result}}</td>
+                        <td>{{ $history->getConvertedDateTimeAttribute($history->created_at)}}</td>
                     </tr>
-                    @endforeach                   
+                    @endforeach          
                 </tbody>
             </table>
         </div>
         @else
-            <p>No User Found</p>
+            <p>No Pond Calculation History Found</p>
         @endif
     </div>
 </section>
