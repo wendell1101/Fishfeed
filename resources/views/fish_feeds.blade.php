@@ -173,7 +173,8 @@
 
             //DFR
 
-            dfrValue = (abw.value * qtyOfFingerlings.value * feedRatePercentage.value * survivalRateValue) / 1000;
+            let frPercentage = feedRatePercentage.value * 0.01;
+            dfrValue = (abw.value * qtyOfFingerlings.value * frPercentage * survivalRateValue) / 1000;
             dfrValue = dfrValue.toFixed(2)
            
             dfr.textContent = dfrValue + ' kgs';

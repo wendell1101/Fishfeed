@@ -50,7 +50,8 @@
                 </li> -->
                 <li class="nav-item">
                     <a href="{{route('ponds.index')}}" class="nav-link @if(Request::is('admin/ponds*')) active @endif" id="categories-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-fish"></i>
+                        <!-- <i class="fa-regular fa-fish"></i> -->
                         <p>
                             Ponds
                         </p>
@@ -58,17 +59,25 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('feeds.index')}}" class="nav-link @if(Request::is('admin/feeds*')) active @endif" id="categories-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-cloud-meatball"></i>
                         <p>
                             Feeds
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('calculation_histories.index')}}" class="nav-link @if(Request::is('admin/calculation_histories*')) active @endif" id="categories-link">
+                    <a href="{{route('pond_calculation_histories')}}" class="nav-link @if(Request::is('admin/pond_calculation_histories*')) active @endif" id="categories-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Calculation Histories
+                           Pond Calculation Histories
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('feed_calculation_histories')}}" class="nav-link @if(Request::is('admin/feed_calculation_histories*')) active @endif" id="categories-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                           Feed Calculation Histories
                         </p>
                     </a>
                 </li>

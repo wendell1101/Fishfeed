@@ -40,8 +40,10 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth','is_admin']], functi
     Route::resource('feeds', FeedController::class);
     Route::get('feeds-delete/{feed}', [FeedController::class, 'delete'])->name('admin.feeds.delete');
 
-    Route::get('calculation_histories', [AdminCalculationHistoryController::class, 'index'])->name('calculation_histories.index');
-    Route::get('calculation_histories-by-user/{user}', [AdminCalculationHistoryController::class, 'getCalculationHistoryByUser'])->name('calculation_histories.show');
+    Route::get('pond_calculation_histories', [AdminCalculationHistoryController::class, 'pond_calculation_histories'])->name('pond_calculation_histories');
+    Route::get('pond_calculation_histories-by-user/{user}', [AdminCalculationHistoryController::class, 'getPondCalculationHistoryByUser'])->name('pond_calculation_histories.show');
+    Route::get('feed_calculation_histories', [AdminCalculationHistoryController::class, 'feed_calculation_histories'])->name('feed_calculation_histories');
+    Route::get('feed_calculation_histories-by-user/{user}', [AdminCalculationHistoryController::class, 'getFeedCalculationHistoryByUser'])->name('feed_calculation_histories.show');
 });
 
 

@@ -1,17 +1,13 @@
 @php
 $links = [
-    [
-    'name' => 'Home',
-    'link' => '/admin/dashboard'
-    ],
-    [
-    'name' => 'Calculation Histories',
-    'link' => route('calculation_histories.index')
-    ],
-    [
-    'name' => 'By ' . $user->getUserFullName(),
-    'link' => route('calculation_histories.show', $user->id)
-    ]
+[
+'name' => 'Home',
+'link' => '/admin/dashboard'
+],
+[
+'name' => 'Calculation Histories',
+'link' => route('pond_calculation_histories')
+]
 ];
 $title = 'Calculation Histories';
 @endphp
@@ -26,34 +22,37 @@ $title = 'Calculation Histories';
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid px-2 py-4 bg-white">
-        <x-alert />        
-        @if($calculations->count())
+        <x-alert />
+        @if($users->count())
         <div class="table-responsive">
-
             <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
                 <thead>
-                <tr>
+                    <tr>
                         <th>#</th>
-                        <th>Calculation Name</th>
-                        <th>Result</th>
-                        <th>Date Calculated</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach($calculations as $key => $history)
+                    @foreach($users as $key => $user)
                     <tr>
                         <td>{{$loop->index+1}}</td>
-                        <td>{{ $history->calculation_name}}</td>
-                        <td>{{ $history->result}}</td>
-                        <td>{{ $history->getConvertedDateTimeAttribute($history->created_at)}}</td>
+                        <td><a href="{{route('users.show', $user->id)}}">{{ strtoupper($user->getUserFullName())}}</a></td>
+                        <td>
+                            {{ $user->email  }}
+                        </td>
+                        <td>
+                            <a href="{{route('pond_calculation_histories.show', $user->id)}}" class="btn btn-success">View calculations</a>
+                        </td>
                     </tr>
-                    @endforeach          
+                    @endforeach                   
                 </tbody>
             </table>
         </div>
         @else
-            <p>No Calculation History Found</p>
+            <p>No User Found</p>
         @endif
     </div>
 </section>
