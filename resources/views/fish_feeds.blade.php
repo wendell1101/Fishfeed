@@ -69,7 +69,7 @@
                     </small>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                    <small class="">Total monthly DFR:</small>
+                    <small class="">Total monthly feed rate:</small>
                     <small class="fw-bold text-danger">
                         <span class="result-value" id="monthly-dfr">0 kgs</span>
                     </small>
@@ -172,9 +172,10 @@
             }
 
             //DFR
-
             let frPercentage = feedRatePercentage.value * 0.01;
-            dfrValue = (abw.value * qtyOfFingerlings.value * frPercentage * survivalRateValue) / 1000;
+            let survivalRatePercentage = survivalRateValue * 0.01;
+
+            dfrValue = (abw.value * qtyOfFingerlings.value * frPercentage * survivalRatePercentage) / 1000;
             dfrValue = dfrValue.toFixed(2)
            
             dfr.textContent = dfrValue + ' kgs';
