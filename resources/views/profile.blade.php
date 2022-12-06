@@ -3,8 +3,13 @@
 @section('content')
 <div class="container mt-2">
     <x-alert />
+    <div class="d-flex justify-content-end">
+        <a href="{{route('calculation_history')}}" class="btn btn-success mr-2">Ponds Calculation History</a>
+        <a href="{{route('feed_calculation_history')}}" class="btn btn-success ml-2">Feeds Calculation History</a>
+    </div>
+
     <h2>Profile information</h2>
-    <div class="card">
+    <div class="card mb-5">
         <form action="{{route('update_profile')}}" method="POST">
             @csrf
             @method('PUT')
@@ -57,11 +62,11 @@
 
                     <div class="col-md-4 mb-2 form-group">
                         <label for="religion">Religion</label>
-                        <input type="text" name="religion" id="religion"  value="{{auth()->user()->religion ?? ''}}" class="form-control" required>
+                        <input type="text" name="religion" id="religion" value="{{auth()->user()->religion ?? ''}}" class="form-control" required>
                     </div>
                     <div class="col-md-4 mb-2 form-group">
                         <label for="birth_date">Birth Date</label>
-                        <input type="date" name="birth_date" id="birth_date" value="{{auth()->user()->birth_date ?? ''}}"class="form-control" required>
+                        <input type="date" name="birth_date" id="birth_date" value="{{auth()->user()->birth_date ?? ''}}" class="form-control" required>
                     </div>
                     <div class="col-md-4 mb-2 form-group">
                         <label for="contact_number">Contact Number</label>
@@ -69,45 +74,66 @@
                     </div>
                 </div>
             </div>
+            <button class="btn btn-secondary border m-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    View more information
+            </button>
 
-            <div class="card-header">Address Information</div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-2 form-group">
-                        <label for="house_number">House Number</label>
-                        <input type="text" name="house_number" value="{{auth()->user()->house_number ?? ''}}" id="house_number" class="form-control" required>
+            <div  class="collapse" id="collapseExample">
+                <div class="card-header">Address Information</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-2 form-group">
+                            <label for="house_number">House Number</label>
+                            <input type="text" name="house_number" value="{{auth()->user()->house_number ?? ''}}" id="house_number" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label for="street">Street</label>
+                            <input type="text" name="street" id="street" value="{{auth()->user()->street ?? ''}}" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label for="barangay">Barangay</label>
+                            <input type="text" name="barangay" id="barangay" value="{{auth()->user()->barangay ?? ''}}" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label for="province">Province</label>
+                            <input type="text" name="province" id="province" value="{{auth()->user()->province ?? ''}}" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" value="{{auth()->user()->city ?? ''}}" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label for="zip_code">Zip code</label>
+                            <input type="text" name="zip_code" id="zip_code" value="{{auth()->user()->zip_code ?? ''}}" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-2 form-group">
+                            <label for="country">Country</label>
+                            <input type="text" name="country" id="country" value="{{auth()->user()->country ?? ''}}" class="form-control" required>
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-2 form-group">
-                        <label for="street">Street</label>
-                        <input type="text" name="street" id="street" value="{{auth()->user()->street ?? ''}}" class="form-control" required>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary float-right">Update</button>
                     </div>
-                    <div class="col-md-6 mb-2 form-group">
-                        <label for="barangay">Barangay</label>
-                        <input type="text" name="barangay" id="barangay" value="{{auth()->user()->barangay ?? ''}}" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 mb-2 form-group">
-                        <label for="province">Province</label>
-                        <input type="text" name="province" id="province" value="{{auth()->user()->province ?? ''}}" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 mb-2 form-group">
-                        <label for="city">City</label>
-                        <input type="text" name="city" id="city" value="{{auth()->user()->city ?? ''}}" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 mb-2 form-group">
-                        <label for="zip_code">Zip code</label>
-                        <input type="text" name="zip_code" id="zip_code" value="{{auth()->user()->zip_code ?? ''}}" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 mb-2 form-group">
-                        <label for="country">Country</label>
-                        <input type="text" name="country" id="country" value="{{auth()->user()->country ?? ''}}" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary float-right">Update</button>
                 </div>
             </div>
+
         </form>
     </div>
 
 </div>
+@endsection
+
+@section('js')
+<script>
+    // const btnMoreInfo = document.getElementById('btn-more-info');
+    // const addressInfo = document.getElementsById('address-info');
+
+    // // btnMoreInfo.addEventListener('click',() => {
+    // //     addressInfo.style.display='block'
+    // // })
+
+    // const toggleMoreInfo = () => {
+    //     addressInfo.classList.add('d-block')
+    // }
+</script>
 @endsection

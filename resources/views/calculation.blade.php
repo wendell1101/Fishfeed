@@ -12,7 +12,8 @@
           <a href="{{route('round_fish_pond')}}" class="text-decoration-none">
             <button class="align-items-center d-flex justify-content-center btn btn-primary btn-lg mt-3 w-100" type="submit">
               <i class='bx bxs-calculator me-1'></i>
-              <p class="m-0">Calculate round fish pond</p>
+              <!-- <p class="m-0">Calculate round fish pond</p> -->
+              <p class="m-0">Nile/ Red Tilapia Circular Fish Tank Grow-out Requirement Guide</p>
             </button>
           </a>
         </div>
@@ -25,7 +26,8 @@
           <a href="{{route('rectangular_fish_pond')}}" class="text-decoration-none">
             <button class="align-items-center d-flex justify-content-center btn btn-primary btn-lg mt-3 w-100" type="submit">
               <i class='bx bxs-calculator me-1'></i>
-              <p class="m-0">Calculate rectangular fish pond</p>
+              <!-- <p class="m-0">Calculate rectangular fish pond</p> -->
+              <p class="m-0">Nile/ Red Tilapia Earthen Pond Grow-out Requirement Guide</p>
             </button>
           </a>
         </div>

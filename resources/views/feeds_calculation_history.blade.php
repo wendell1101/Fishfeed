@@ -18,7 +18,6 @@
                         <th>DFR</th>
                         <th>Monthly DFR</th>
                         <th>Sacks per month</th>
-                        <th>Size of fish</th>
                         <th>Date Calculated</th>
                     </tr>
                 </thead>
@@ -35,7 +34,6 @@
                         <td>{{ $history->dfr}} kgs</td>
                         <td>{{ $history->monthly_dfr}} kgs</td>
                         <td>{{ $history->sacks_per_month}} pcs</td>
-                        <td>{{ ($history->size_of_fish > 0) ? $history->size_of_fish : 'N/A' }}</td>
                         <td>{{ $history->getConvertedDateTimeAttribute($history->created_at)}}</td>
                     </tr>
                     @endforeach

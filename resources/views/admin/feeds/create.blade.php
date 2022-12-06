@@ -35,6 +35,7 @@
                     <option value="Fish Fry Mash">Fish Fry Mash</option>
                     <option value="Fish Starter">Fish Starter</option>
                     <option value="Fish Grower">Fish Grower</option>
+                    <option value="Fish Grower">Fish Finisher</option>
                 </textarea>
             </div>
             <div class="form-group">

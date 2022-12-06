@@ -69,7 +69,7 @@
                     </small>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
-                    <small class="">Total monthly DFR:</small>
+                    <small class="">Total monthly feed allowance:</small>
                     <small class="fw-bold text-danger">
                         <span class="result-value" id="monthly-dfr">0 kgs</span>
                     </small>
@@ -81,12 +81,6 @@
                     </small>
                 </div>
 
-                <div class="d-flex align-items-center justify-content-between">
-                    <small class="">Size of fish:</small>
-                    <small class="fw-bold text-danger">
-                        <span class="result-value" id="size-of-fish">0</span>
-                    </small>
-                </div>
                 <div class="d-flex align-items-center justify-content-between">
                     <small class="">Feed rate:</small>
                     <small class="fw-bold text-danger">
@@ -122,8 +116,6 @@
         let monthlyDfrValue = 0;
         const sacksPerMonth = document.getElementById('sacks-per-month')
         let sacksPerMonthValue = 0;
-        const sizeOfFish = document.getElementById('size-of-fish')
-        let sizeOfFishValue = 0
         const feedRate = document.getElementById('feed-rate')
         let feedRateValue = 0;
 
@@ -172,9 +164,10 @@
             }
 
             //DFR
-
             let frPercentage = feedRatePercentage.value * 0.01;
-            dfrValue = (abw.value * qtyOfFingerlings.value * frPercentage * survivalRateValue) / 1000;
+            let survivalRatePercentage = survivalRateValue * 0.01;
+
+            dfrValue = (abw.value * qtyOfFingerlings.value * frPercentage * survivalRatePercentage) / 1000;
             dfrValue = dfrValue.toFixed(2)
            
             dfr.textContent = dfrValue + ' kgs';
@@ -190,15 +183,6 @@
             sacksPerMonthValue = sacksPerMonthValue.toFixed(2)
             sacksPerMonth.textContent = sacksPerMonthValue + ' pcs'
 
-            //size of fish
-            if(abw.value > 0.90){
-                sizeOfFishValue = 0
-                sizeOfFish.textContent = 'N/A'
-            }else{
-                sizeOfFishValue = abw.value;
-                sizeOfFish.textContent = sizeOfFishValue
-            }
-
             //feedRate
             feedRateValue = feedRatePercentage.value
             feedRate.textContent = feedRateValue + ' %'
@@ -212,7 +196,7 @@
                     dfr: dfrValue,
                     monthly_dfr: monthlyDfrValue,
                     sacks_per_month: sacksPerMonthValue,
-                    size_of_fish: sizeOfFishValue,
+                    size_of_fish: 0,
                 })
                 .then(function(response) {
                     console.log('success: ', response);
