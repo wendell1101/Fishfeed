@@ -37,6 +37,7 @@ $title = 'Pond Calculation Histories';
                         <th>Calculation Name</th>
                         <th>Result</th>
                         <th>Date Calculated</th>
+                        <th>Suggested date of transfer (2 months)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +47,8 @@ $title = 'Pond Calculation Histories';
                         <td>{{$loop->index+1}}</td>
                         <td>{{ $history->calculation_name}}</td>
                         <td>{{ $history->result}}</td>
-                        <td>{{ $history->getConvertedDateTimeAttribute($history->created_at)}}</td>
+                        <td>{{ $history->date_time_calculated }}</td>
+                        <td>{{ $history->date_transfer }}</td>
                     </tr>
                     @endforeach          
                 </tbody>

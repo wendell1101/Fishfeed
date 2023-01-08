@@ -85,8 +85,8 @@
             </div>
 
             <div class="col-md-6 mt-5">
-            <canvas id="myChart" width="400" height="200"></canvas>
-        </div>
+                <canvas id="myChart" width="400" height="200"></canvas>
+            </div>
     </div>
 </section>
 <!-- /.content -->

@@ -1,51 +1,55 @@
-@extends('layouts.app')
+@php
+$links = [
+[
+'name' => 'Home',
+'link' => '/admin/dashboard'
+],
+[
+'name' => 'Monitoring Reports',
+'link' => route('monitorings')
+],
+[
+'name' => 'By ' . $user->getUserFullName(),
+'link' => route('monitorings.show', $user->id)
+]
+];
+$title = 'Monitoring Reports';
+@endphp
+
+@extends('admin.base')
 
 @section('content')
-<div class="container mt-2">
-    <form action="" class="row">
+<!-- Content Header (Page header) -->
+<x-admin-header :links="$links" :title="$title" />
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid px-2 mx-auto py-4 bg-white">
         <x-alert />
-        <div class="col-12">
-            <h2 class="bg-white p-2 rounded">Profile Information</h2>
-        </div>
-        <div class="col-md-3">
-            <div class="card card-body">
-                <div class="form-group mb-2">
-                    <label for="student_number">Student Number</label>
-                    <input type="tel" name="student_number" id="student_number" class="form-control" required readonly value="{{auth()->user()->student_number}}">
+        <form class="row align-items-center">
+            <div class="form-group mt-2 col-10">
+                <div class="d-flex m-2">
+                    <select name="year" id="year" class="form-control">
+                        <option value="2023" @if(Request()->year === '2023') selected @endif>2023</option>
+                        <option value="2022" @if(Request()->year === '2022') selected @endif>2022</option>
+
+                    </select>
                 </div>
-                <a href="{{route('calculation_history')}}" class="btn btn-secondary mr-2 mb-2">Ponds Calculation History</a>
-                <a href="{{route('feed_calculation_history')}}" class="btn btn-secondary ml-2 mb-2 ">Feeds Calculation History</a>
-                <a href="{{route('profile')}}" class="btn btn-success ml-2">Monitoring Reports</a>
-                <a href="{{route('edit_profile')}}" class="btn btn-secondary ml-2 mt-4">Edit profile</a>
+
             </div>
+            <div class="form-group col-2">
+                <button type="submit" class="btn btn-success">filter</button>
+            </div>
+        </form>
+        <div class="col-md-9 mx-auto mt-5">
+            <canvas id="myChart" width="400" height="200"></canvas>
         </div>
-        <div class="col-md-9 bg-white">
-            <!-- Chart -->
-            <div class="row align-items-center">
-                <div class="form-group mt-2 col-9">
-                    <div class="d-flex m-2">
-                        <select name="year" id="year" class="form-control">
-                        <option value="2023"  @if(Request()->year === '2023')  selected @endif>2023</option>
-                            <option value="2022" @if(Request()->year === '2022') selected @endif>2022</option>
-                            
-                        </select>
-                    </div>
-
-                </div>
-                <div class="form-group col-2">
-                    <button type="submit" class="btn btn-success">filter</button>
-                </div>
-            </div>
-
-
-            <div class="col-md-12 mt-5">
-                <canvas id="myChart" width="400" height="200"></canvas>
-            </div>
-        </div>
-
-    </form>
-</div>
+    </div>
+</section>
+<!-- /.content -->
 @endsection
+
 
 @section('js')
 <script>
@@ -173,10 +177,6 @@
     monitoringData.december['monthly_dfr'] = "<?php echo $data['december']['monthly_dfr'] ?>"
 
 
-
-
-    console.log(monitoringData)
-
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -216,7 +216,7 @@
                     borderWidth: 1
                 },
                 {
-                    label: 'Total monthly Feeds (kg)',
+                    label: 'Total monthly DFR (kg)',
                     data: [monitoringData.january.monthly_dfr, monitoringData.february.monthly_dfr, monitoringData.march.monthly_dfr, monitoringData.april.monthly_dfr, monitoringData.may.monthly_dfr, monitoringData.june.monthly_dfr, monitoringData.july.monthly_dfr, monitoringData.august.monthly_dfr, monitoringData.september.monthly_dfr, monitoringData.october.monthly_dfr, monitoringData.november.monthly_dfr, monitoringData.december.monthly_dfr, ],
                     backgroundColor: [
                         'orange',
@@ -231,6 +231,7 @@
                         'orange',
                         'orange',
                         'orange',
+
                     ],
                     borderColor: [
                         '#333',
@@ -250,7 +251,7 @@
                 },
                 {
                     label: 'DFR',
-                    data: [ monitoringData.january.dfr, monitoringData.february.dfr, monitoringData.march.dfr, monitoringData.april.dfr, monitoringData.may.dfr, monitoringData.june.dfr, monitoringData.july.dfr, monitoringData.august.dfr, monitoringData.september.dfr, monitoringData.october.dfr, monitoringData.november.dfr, monitoringData.december.dfr, ],
+                    data: [monitoringData.january.dfr, monitoringData.february.dfr, monitoringData.march.dfr, monitoringData.april.dfr, monitoringData.may.dfr, monitoringData.june.dfr, monitoringData.july.dfr, monitoringData.august.dfr, monitoringData.september.dfr, monitoringData.october.dfr, monitoringData.november.dfr, monitoringData.december.dfr, ],
                     backgroundColor: [
                         'gray',
                         'gray',

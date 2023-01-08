@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container mt-3">
+  <div class="form-group">
+    <h2> Select type of calculation</h2>
+    <a href="{{route('fish_feeds')}}" class="btn btn-secondary mt-2 mr-2">Feeds</a>
+    <a href="{{route('round_fish_pond')}}" class="btn btn-success mt-2 mr-2">Nile/ Red Tilapia Circular Fish Tank Grow-out Requirement Guide</a>
+    <a href="{{route('rectangular_fish_pond')}}" class="btn btn-secondary mt-2 mr-2">Nile/ Red Tilapia Earthen Pond Grow-out Requirement Guide</a>
+  </div>
+</div>
 <div class="container">
     <div class="round-type-calculation-wrapper">
         <div class="pond-calculation text-white p-5 rounded">

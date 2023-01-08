@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Helper\Helper;
 use Illuminate\Http\Request;
@@ -17,7 +18,14 @@ class AdminCalculationHistoryController extends Controller
 
     public function getPondCalculationHistoryByUser($id){
         $user = User::find($id);
-        $calculations = CalculationHistory::where('user_id', $user->id)->get();
+        $calculations = CalculationHistory::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
+
+        foreach($calculations as $item){
+            $date_calculated =  Helper::getConvertedDateAttribute($item->created_at, 1);
+            $item->date_time_calculated = $date_calculated;
+            $item->date_transfer = Helper::getConvertedDateAttribute(Carbon::parse($date_calculated)->addMonth(2), 1);
+        }
+
 
         return view('admin.calculation_histories.ponds.show', compact('calculations', 'user'));
     }
