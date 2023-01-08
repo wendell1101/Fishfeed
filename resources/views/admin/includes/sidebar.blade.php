@@ -81,6 +81,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('monitorings')}}" class="nav-link @if(Request::is('admin/monitoring*')) active @endif" id="categories-link">
+                        <i class="nav-icon fas fa-chart-bar"></i>
+                        <p>
+                           Monitoring Reports
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

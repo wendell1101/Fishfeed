@@ -33,6 +33,10 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 mb-2 form-group">
+                        <label for="student_number">Student Number</label>
+                        <input type="text" name="student_number" id="student_number" value="{{$user->student_number ?? ''}}" class="form-control" required>
+                    </div>
+                    <div class="col-md-4 mb-2 form-group">
                         <label for="first_name">First name</label>
                         <input type="text" name="first_name" id="first_name" value="{{$user->first_name ?? ''}}" class="form-control" required>
                     </div>

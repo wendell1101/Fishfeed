@@ -10,6 +10,20 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <!-- student number -->
+                        <div class="row mb-3">
+                            <label for="student_number" class="col-md-4 col-form-label text-md-end">{{ __('Student Number') }}</label>
+
+                            <div class="col-md-6">
+                                    <input id="student_number" type="text" class="form-control @error('student_number') is-invalid @enderror" name="student_number" value="{{ old('student_number') }}" required autocomplete="student_number" autofocus>
+
+                                @error('student_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>

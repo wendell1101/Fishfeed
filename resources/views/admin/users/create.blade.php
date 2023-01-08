@@ -1,22 +1,22 @@
 @php
-    $links = [
-        [
-            'name' => 'Home',
-            'link' => '/admin/dashboard'
-        ],
-        [
-            'name' => 'Create User',
-            'link' => route('users.index')
-        ],
-    ];
-    $title = 'Create User';
-@endphp 
+$links = [
+[
+'name' => 'Home',
+'link' => '/admin/dashboard'
+],
+[
+'name' => 'Create User',
+'link' => route('users.index')
+],
+];
+$title = 'Create User';
+@endphp
 
 @extends('admin.base')
 
 @section('content')
 <!-- Content Header (Page header) -->
-<x-admin-header :links="$links" :title="$title"/>
+<x-admin-header :links="$links" :title="$title" />
 <!-- /.content-header -->
 
 <!-- Main content -->
@@ -28,6 +28,10 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 mb-2 form-group">
+                        <label for="student_number">Student Number</label>
+                        <input type="text" name="student_number" id="student_number" value="{{old('student_number')}}" class="form-control" required>
+                    </div>
+                    <div>
                         <label for="first_name">First name</label>
                         <input type="text" name="first_name" id="first_name" value="{{old('first_name')}}" class="form-control" required>
                     </div>
@@ -45,7 +49,7 @@
                     </div>
                     <div class="col-md-4 mb-2 form-group">
                         <label for="user_name">Username</label>
-                        <input type="text" name="user_name" id="user_name"  value="{{old('user_name')}}" class="form-control" required>
+                        <input type="text" name="user_name" id="user_name" value="{{old('user_name')}}" class="form-control" required>
                     </div>
                     <div class="col-md-4 mb-2 form-group">
                         <label for="email">Email</label>
@@ -55,7 +59,7 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" class="form-control" required>
                         @error('password')
-                            <p class="text-danger">{{$message}}</p>
+                        <p class="text-danger">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="col-md-4 mb-2 form-group">
@@ -80,7 +84,7 @@
 
                     <div class="col-md-4 mb-2 form-group">
                         <label for="religion">Religion</label>
-                        <input type="text" name="religion" id="religion"  value="{{old('religion')}}" class="form-control" required>
+                        <input type="text" name="religion" id="religion" value="{{old('religion')}}" class="form-control" required>
                     </div>
                     <div class="col-md-4 mb-2 form-group">
                         <label for="birth_date">Birth Date</label>
@@ -93,7 +97,7 @@
 
                     <div class="col-md-4 mb-2 form-group">
                         <label for="role">Role</label><br>
-                        <input type="checkbox" name="is_admin"> 
+                        <input type="checkbox" name="is_admin">
                         <span>Admin</span>
                     </div>
                 </div>
@@ -104,7 +108,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-2 form-group">
                         <label for="house_number">House Number</label>
-                        <input type="text" name="house_number"  id="house_number" value="{{old('house_number')}}" class="form-control" required>
+                        <input type="text" name="house_number" id="house_number" value="{{old('house_number')}}" class="form-control" required>
                     </div>
                     <div class="col-md-6 mb-2 form-group">
                         <label for="street">Street</label>

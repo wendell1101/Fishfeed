@@ -20,11 +20,13 @@ class Helper
             ->format('M d, Y H:i:s');
     }
 
-    public static function getConvertedDateAttribute($date){
+    public static function getConvertedDateAttribute($date, $month=false){
         $timezone = self::getTimezone();
+        $format = $month ? 'M d. Y' : 'Y-m-d';
+
         return Carbon::parse($date)
             ->timezone($timezone)
-            ->format('Y-m-d');
+            ->format($format);      
     }
 
     public static function getConvertedTimeAttribute($time){

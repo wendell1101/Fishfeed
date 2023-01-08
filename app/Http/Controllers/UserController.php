@@ -28,8 +28,13 @@ class UserController extends Controller
             'city' =>  $request->city,
             'zip_code' =>  $request->zip_code,
             'country' =>  $request->country,
+            'student_number' =>  $request->student_number,
         ]);
 
         return redirect()->back()->with('success', 'Profile has been updated successfully');
+    }
+
+    public function edit(){
+        return view('profile_edit');
     }
 }

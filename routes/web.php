@@ -6,13 +6,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PondsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\FeedsInfoController;
 use App\Http\Controllers\PondsInfoController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CalculationHistoryController;
-use App\Http\Controllers\AdminCalculationHistoryController;
 use App\Http\Controllers\FeedCalculationHistoryController;
+use App\Http\Controllers\AdminCalculationHistoryController;
+use App\Http\Controllers\MonitoringController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,10 +46,13 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth','is_admin']], functi
     Route::get('pond_calculation_histories-by-user/{user}', [AdminCalculationHistoryController::class, 'getPondCalculationHistoryByUser'])->name('pond_calculation_histories.show');
     Route::get('feed_calculation_histories', [AdminCalculationHistoryController::class, 'feed_calculation_histories'])->name('feed_calculation_histories');
     Route::get('feed_calculation_histories-by-user/{user}', [AdminCalculationHistoryController::class, 'getFeedCalculationHistoryByUser'])->name('feed_calculation_histories.show');
+
+    Route::get('monitorings', [MonitoringController::class, 'index'])->name('monitorings');
+    Route::get('monitoring-by-user/{user}', [MonitoringController::class, 'monitoringPerUser'])->name('monitorings.show');
 });
 
 
-Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('update_profile')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -67,6 +72,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/feed_calculation_history',[FeedCalculationHistoryController::class, 'index'])->name('feed_calculation_history');
     Route::post('/feed_calculation_history',[FeedCalculationHistoryController::class, 'store'])->name('feed_calculation_history.store');
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/edit-profile', [UserController::class, 'edit'])->name('edit_profile');
+    Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('update_profile');
 });
 
 
@@ -93,7 +102,3 @@ Route::get('/fish_ponds', function(){
 Route::get('/fish_reproduction', function(){
     return view('fish_reproduction');
 })->name('fish_reproduction');
-
-Route::get('/profile', function(){
-    return view('profile');
-})->name('profile')->middleware('auth');
