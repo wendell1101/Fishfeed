@@ -95,6 +95,10 @@
                         <span class="result-value" id="feed-rate">0 %</span>
                     </small>
                 </div>
+
+                <div class="mt-5">
+                    <small class="text-white">Note: The above fish feed requirement calculation is based in allometric scaling formula</small>
+                </div>
             </div>
         </div>
             <iframe style="margin-top: 200px" width="100%" height="710" src="https://www.youtube.com/embed/1vE1qNQ6Aic" title="Feeding FRENZY of Nile Tilapia in Aquaponics Facility" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

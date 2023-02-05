@@ -17,7 +17,7 @@
                 </div>
                 <a href="{{route('calculation_history')}}" class="btn btn-secondary mr-2 mb-2">Ponds Calculation History</a>
                 <a href="{{route('feed_calculation_history')}}" class="btn btn-secondary ml-2 mb-2 ">Feeds Calculation History</a>
-                <a href="{{route('profile')}}" class="btn btn-secondary ml-2">Monitoring Reports</a>
+                <a href="{{route('profile')}}" class="btn btn-secondary ml-2">Monitoring Module</a>
                 <a href="{{route('edit_profile')}}" class="btn btn-success ml-2 mt-4">Edit profile</a>
             </div>
         </div>

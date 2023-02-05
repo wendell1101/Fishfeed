@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,300&display=swap');
 
 body {
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #d6d6d6;
   /* overflow-x: hidden; */
 }
