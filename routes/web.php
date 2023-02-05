@@ -15,6 +15,7 @@ use App\Http\Controllers\CalculationHistoryController;
 use App\Http\Controllers\FeedCalculationHistoryController;
 use App\Http\Controllers\AdminCalculationHistoryController;
 use App\Http\Controllers\MonitoringController;
+use App\Http\Controllers\MonitoringPondController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/edit-profile', [UserController::class, 'edit'])->name('edit_profile');
     Route::put('/update-profile', [UserController::class, 'updateProfile'])->name('update_profile');
+
+
+    //Monitoring ponds
+
+    Route::get('/monitoring-ponds', [MonitoringPondController::class, 'index'])->name('monitoring_ponds.index');
+    Route::get('/create-monitoring-pond', [MonitoringPondController::class, 'create'])->name('monitoring_ponds.create');
+    Route::post('/store-monitoring-pond', [MonitoringPondController::class, 'store'])->name('monitoring_ponds.store');
+    Route::get('/edit-monitoring-pond/{id}', [MonitoringPondController::class, 'edit'])->name('monitoring_ponds.edit');
+    Route::put('/update-monitoring-pond/{id}', [MonitoringPondController::class, 'update'])->name('monitoring_ponds.update');
 });
 
 
