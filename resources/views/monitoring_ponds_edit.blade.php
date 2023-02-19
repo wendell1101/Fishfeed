@@ -70,16 +70,22 @@
 
                         <div class="row">
                             <p class="mt-2">Note: Fill up this every monthly sampling</p>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="mortality">Mortality</label>
                                     <input type="number" name="mortality" id="mortality" value="{{$monitoringPond->mortality}}" class="form-control" step=".01" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="form-group">                                   
                                     <label for="mortality">Date(Every Sampling)</label>
-                                    <input type="date" name="date_of_sampling" id="date_of_sampling" onfocus="this.showPicker()" value="{{$monitoringPond->date_of_sampling}}" class="form-control" required>
+                                    <input type="date" name="date_of_sampling" id="date_of_sampling" onfocus="this.showPicker()" value="{{$monitoringPond->date_of_sampling}}" class="form-control" readonly disabled required>
+                                    <small class="text-danger">Expected Date of Sampling *</small><br>
+                                    <ul>
+                                        @foreach($diffMonths as $month)
+                                            <li class="ml-4 text-danger fw-bold">{{$month}}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
                         </div>
