@@ -46,7 +46,12 @@
                         @foreach($monitoringPonds as $pond)
                         <tr>
                             <th scope="row">{{$loop->index+1}}</th>
-                            <td>{{$pond->ponds_name}}</td>
+                            <td>{{strtoupper($pond->ponds_name)}} <br>
+                                @if($pond->date_of_sampling_formatted && $pond->date_of_sampling_from_now)
+                                - Required Date of sampling:<br> 
+                                <span class="fw-bold">- {{$pond->date_of_sampling_formatted}}</span> 
+                                <span class="text-danger fw-bold">({{$pond->date_of_sampling_from_now}})</span></td>
+                                @endif
                             <td>
                                 <a href="{{route('monitoring_ponds.edit', $pond->id)}}" class="btn btn-success">Edit</a>
                             </td>

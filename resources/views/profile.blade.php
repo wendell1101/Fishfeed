@@ -54,16 +54,20 @@
                                 <label for="year">Select Year</label>
                                 <select name="year" id="year" class="form-control">
                                     <option value="2023" @if(Request()->year === '2023') selected @endif>2023</option>
-                                    <option value="2022" @if(Request()->year === '2022') selected @endif>2022</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group mt-2 col-md-6">
                             <div>
-                                <label for="pond_id">Select pond type</label>
+                                <label for="pond_id">Select pond</label>
                                 <select name="pond_id" id="pond_id" class="form-control">
                                     @foreach($ponds as $pond)
-                                    <option value="{{$pond->id}}" @if(Request()->pond_id == $pond->id) selected @endif>{{$pond->name}}</option>
+                                    <option value="{{$pond->id}}" @if(Request()->pond_id == $pond->id) selected @endif>{{$pond->ponds_name}}
+                                        @if($pond->date_of_sampling_formatted && $pond->date_of_sampling_from_now)
+                                        <span class="fw-bold">- {{$pond->date_of_sampling_formatted}}</span> 
+                                        <span class="text-danger fw-bold">({{$pond->date_of_sampling_from_now}})</span></td>
+                                        @endif
+                                    </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -81,25 +85,37 @@
                     <div class="row mt-4">
                         <div class="col">
                             <h4 class="mb-2">Overall Summary</h4>
+                            @if($summaries)
                             <table class="table table-bordered text-center">
                                 <thead>
                                     <tr class="bg-secondary text-white">
-                                        <th scope="col">Month</th>
+                                        <th scope="col">Pond</th>
                                         <th scope="col">Abw</th>
+                                        <th scope="col">Stock Fingerlings</th>
+                                        <th scope="col">Mortality</th>
                                         <th scope="col">Overall Harvest</th>
                                     </tr>
                                 </thead>
                                 <tbody class="">
+                                    @foreach($summaries as $pond)
                                     <tr>
-                                        <td>January</td>
-                                        <td>
-                                            {{$data['january']['abw']}}
+                                        <td>{{$pond->ponds_name}}
                                         </td>
                                         <td>
-                                            {{$data['january']['survived']}}
+                                            {{$pond->abw}}
+                                        </td>
+                                        <td>
+                                            {{$pond->stock_fingerlings}}
+                                        </td>
+                                        <td>
+                                            {{$pond->mortality_total}}
+                                        </td>
+                                        <td>
+                                        {{$pond->total_survived}}
                                         </td>
                                     </tr>
-                                    <tr>
+                                    @endforeach
+                                    <!-- <tr>
                                         <td>February</td>
                                         <td>
                                             {{$data['february']['abw']}}
@@ -197,9 +213,12 @@
                                         <td>
                                             {{$data['december']['survived']}}
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
+                            @else
+                            <p>No result found</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -350,9 +369,6 @@
     monitoringData.december['survived'] = "<?php echo $data['december']['survived'] ?>"
 
 
-
-
-    console.log(monitoringData)
 
     var myChart = new Chart(ctx, {
         type: 'bar',
